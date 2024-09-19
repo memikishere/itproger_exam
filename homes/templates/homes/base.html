@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'homes/style.css' %}">
+    <link rel="stylesheet" href="{% static 'authorization/style.css' %}">
+</head>
+<body>
+    {% if not user.is_authenticated %}
+    <div class="header">
+        <div class="head_buttons" id="hb_1">
+            <img src="{% static 'homes/pictures/logo.png' %}" class="logo">
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <!-- <a href="/admin" style="color: red;">Админ панель(врменно)</a> -->
+        </div>
+        <div class="head_buttons" id="hb_2">
+            <a href="/authorization/login">Войти</a>
+            <a href="/authorization/signup">Зарегестрироваться</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="header">
+        <div class="head_buttons" id="hb_1">
+            <img src="{% static 'homes/pictures/logo.png' %}" class="logo">
+            <a href="/">Главная</a>
+            <a href="/about">О нас</a>
+            <!-- <a href="/admin" style="color: red;">Админ панель(врменно)</a> -->
+        </div>
+        <div class="head_buttons" id="hb_2">
+            <a href="/authorization/user">Мой кабинет</a>
+            
+        </div>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

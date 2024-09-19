@@ -1,0 +1,19 @@
+{% extends 'authorization/usermain.html' %}
+
+{% block title %}
+    Настройки профиля
+{% endblock %}
+
+{% block user %}
+    <div class="up_settings">
+        <div class="up_settings_headtext">
+            <h1>Настройки профиля</h1>
+            <span>Введите новые данные и сохраните изменения</span>
+        </div>
+        <form class="rp_reg_form" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ settingsForm.as_p }}
+            <button type="submit">Сохранить изменения</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'homes/base.html' %}
+{% load static %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for mess in messages %}
+            <div class="message_success">{{ mess }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="rp_reg">
+        <div class="rp_headtext">Авторизация</div>
+        <form class="rp_reg_form" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+{% endblock %}

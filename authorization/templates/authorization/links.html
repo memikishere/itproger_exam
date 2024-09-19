@@ -1,0 +1,24 @@
+{% extends 'authorization/usermain.html' %}
+
+{% block title %}
+    Мои малинки
+{% endblock %}
+
+{% block user %}
+    <div class="up_links">
+            {% if messages %}
+                {% for mess in messages %}
+                    <div class="message_success">{{ mess }}</div>
+                {% endfor %}
+            {% endif %}
+        <a href="/authorization/user/links/newlink" class="up_links_button">Новая малинка</a>
+        <div class="up_links_all">
+            {% for obj in links %}
+                <div>
+                    <a target="_blank" href="{{ obj.link }}">{{ obj.link_name }}</a>
+                    <a href="{% url 'links' %}?id={{ obj.id }}">X</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div> 
+{% endblock %}

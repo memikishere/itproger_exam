@@ -1,0 +1,19 @@
+{% extends 'authorization/usermain.html' %}
+
+{% block title %}
+    Мой профиль
+{% endblock %}
+
+{% block user %}
+    <div class="up_account">
+        {% if messages %}
+            {% for mess in messages %}
+                <div class="message_success_2">{{ mess }}</div>
+            {% endfor %}
+        {% endif %}
+        <h1>Кабинет пользователя</h1>
+        <span>Логин:  {{ user.get_username }}</span>
+        <span>Email: {{ user.email }}</span>
+        <span>Количество малинок: {{ data }}</span>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'authorization/usermain.html' %}
+
+{% block title %}
+    Новая ссылка
+{% endblock %}
+
+{% block user %}
+    <div class="up_newlink">
+        <div class="up_settings_headtext">
+            <h1>Создаем новую малинку</h1>
+            <span>Введите ссылку и название ссылки, что бы создать новую малинку</span>
+        </div>
+        <form class="rp_reg_form" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ newLinkForm.as_p }}
+            <button type="submit">Создать малинку</button>
+        </form>
+    </div> 
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'homes/base.html' %}
+
+{% block title %}
+    Кабинет пользователя
+{% endblock %}
+
+{% block content %}
+    <!-- {% block messages %}
+    {% endblock %} -->
+    <div class="up_parent">
+        {% block user %}
+        {% endblock %}
+        <div class="up_buttons">
+            <a href="/authorization/user/links">Мои малинки</a>
+            <a href="/authorization/user/settings">Настроить профиль</a>
+            <form action="/authorization/exit/" method="post">
+                {% csrf_token %}
+                <button type="submit">Выйти</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
